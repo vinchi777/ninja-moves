@@ -1,0 +1,15 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "ejs": "*",
+    "stylus": "*",
+    "request": "~2.33.0",
+    "cheerio": "~0.13.1"
+  }
+}
