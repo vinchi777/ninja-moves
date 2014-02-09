@@ -10,6 +10,8 @@
     "ejs": "*",
     "stylus": "*",
     "request": "~2.33.0",
-    "cheerio": "~0.13.1"
+    "cheerio": "~0.13.1",
+    "async": "~0.2.10",
+    "socket.io": "~0.9.16"
   }
 }

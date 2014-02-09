@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+	  <h4 id="loop"></h4>
+	  Total Reservations:
+	  <button id="gr1">Get Reservations</button>
+	  <hr>
+	  <h4 id="whilst"></h4>
+	  Total Reservations:
+	  <button id="gr2">Get Reservations</button>
+
+	  <script>
+		  $(function(){
+				var socket = io.connect('http://localhost:3000');
+				socket.on('loop', function(data){
+					$('#loop').html(data.reservations);	
+				})
+				socket.on('whilst', function(data){
+					$('#whilst').html(data.reservations);	
+				})
+				$("#gr1").click(function(){
+					socket.emit('use_loop', {});	
+				});
+				$("#gr2").click(function(){
+					socket.emit('use_whilst', {});	
+				});
+		  });
+	  </script>
   </body>
 </html>
